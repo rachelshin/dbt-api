@@ -27,12 +27,21 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:name', (request, response) => {
-    const rapperName = request.params.name.toLowerCase()
-    if(rappers[rapperName]){
-        response.json(rappers[rapperName])
+app.get('/api/:skill', (request, response) => {
+    const skillName = request.params.name.toLowerCase()
+    if(skills[skillName]){
+        response.json(skills[skillName])
     }else{
-        response.json(rappers['unknown'])
+        response.json(skills['unknown'])
+    }
+})
+
+app.get('/api/:module', (request, response) => {
+    const moduleName = request.params.name.toLowerCase()
+    if(skills[moduleName]){
+        response.json(skills[moduleName])
+    }else{
+        response.json(skills['unknown'])
     }
 })
 
